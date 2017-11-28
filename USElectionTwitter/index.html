@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Twitter Analysis of US Election 2016</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <link href="d3/calendarview/calendarview.css" rel="stylesheet">
+    <link href="d3/parallel/parallel.css" rel="stylesheet">
+    <link href="d3/streamgraph/streamgraph.css" rel="stylesheet">
+    <link href="d3/usmap/usmap.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <link href="css/animate.css" rel="stylesheet">
+    <script src="js/animate.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll text-uppercase" href="index.html"><b>US ELECTION <font color="#67C9FA">2016</font></font></b></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#intro" onclick=$("#menu-close").click();>Intro</a>
+                    </li>
+        
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preliminary Analysis <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#prelim">Historic View</a></li>
+                            <li><a href="#historyOfIndustries">Twitter Landscape</a></li>
+                            <li><a href="#globalScatter">Fun Facts</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sentiment Analysis <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#sentiment">Wordclouds</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Download study</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://nbviewer.jupyter.org/url/shawnhouchn.github.io/Social-Graph-Interaction/project/project_assignmentB.ipynb" target="_blank">iPython Notebook (Preview)</a></li>
+                            <li><a href="https://shawnhouchn.github.io/Social-Graph-Interaction/project/project_assignmentB.ipynb" target="_blank">iPython Notebook (Download)</a></li>
+                            <li><a href="https://drive.google.com/file/d/0Byd_stTDMHZAVTdEV0xsVXpTSjg/view" target="_blank">Reduced network (Download)</a></li>
+                            <li><a href="https://drive.google.com/file/d/0Byd_stTDMHZAeDM5NEtQTlU3M3c/view" target="_blank">Merged data (Download)</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+    	<a class="arrow-wrap" href="#overview"><span class="arrow"></span></a>
+        <div class="container">
+            <div class="row display-table">
+                <div class="col-sm-7">
+                    <div class="header-content">
+                        <div class="header-content-inner">
+                            <center><span style="font-size:50px;" class="text-uppercase animate-start" data-animations="fadeInUp" data-animation-delay="1s" data-animation-duration="2s">Twitter Analysis <br><font color="#FFF"><b>US Election</b></font> 2016</span></center><br><br><br>
+                            <h3 style="margin-top:-20px;" class="animate-start" data-animations="fadeInDown" data-animation-delay="2s" data-animation-duration="2s">Some statement here that is long enough. Blah. Interactive Word Bubble size the to right instead?</h3>
+                            <br>
+                            <center><a href="https://shawnhouchn.github.io/Social-Graph-Interaction/project/project_assignmentB.ipynb" class="btn btn-outline-black btn-xl page-scroll animate-start" data-animations="fadeIn" data-animation-delay="3s" data-animation-duration="2s" target="_blank">Download the study here</a></center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-3">
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="6s" data-animation-duration="2s"><b>#DonaldTrump</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="5.8s" data-animation-duration="2s"><b>#Trump</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="5.6s" data-animation-duration="2s"><b>#MAGA</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="5.4s" data-animation-duration="2s"><b>#Hillary</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="5.2s" data-animation-duration="2s"><b>#ImWithHer</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="5s" data-animation-duration="2s"><b>#TrumpPence16</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="4.8s" data-animation-duration="2s"><b>#Clinton</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="4.6s" data-animation-duration="2s"><b>#DrainTheSwamp</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="4.4s" data-animation-duration="2s"><b>#TrumpTrain</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="4.2s" data-animation-duration="2s"><b>#NeverTrump</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="4s" data-animation-duration="2s"><b>#AmericaFirst</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="3.8s" data-animation-duration="2s"><b>#DebateNight</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="3.6s" data-animation-duration="2s"><b>#CrookedHillary</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="3.4s" data-animation-duration="2s"><b>#MakeAmericaGreatAgain</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="3.2s" data-animation-duration="2s"><b>#NotMyPresident</b></h1>
+                        <h1 class="animate-start" data-animations="fadeInDown" data-animation-delay="3s" data-animation-duration="2s"><b>#Election2016</b></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="overview" class="overview">
+    	<div class="container-fluid text-justify">
+            <div class="row">
+                <div class="col-sm-3">
+                	<center><strong>Streamgraph</strong>
+                	<a href="#streamgraphTitle"><img src="img/streamgraph.png" class="img-responsive grow"></a>
+                	</center>
+                </div>
+                <div class="col-sm-3">
+                	<center><strong>Wordclouds</strong>
+                	<a href="#wordcloudTitle"><img src="img/wordcloud.png" class="img-responsive grow"></a>
+                	</center>
+                </div>
+                <div class="col-sm-2">
+                	<center><strong>Calendar Views</strong>
+                	<a href="#calendarviewTitle"><img src="img/calendar.png" class="img-responsive grow"></a>
+                	</center>
+                </div>
+                <div class="col-sm-2">
+                	<center><strong>US Map</strong>
+                	<a href="#usmapTitle"><img src="img/usmap.png" class="img-responsive grow"></a>
+                	</center>
+                </div>
+                <div class="col-sm-2">
+                	<center><strong>Parallelogram</strong>
+                	<a href="#parallelTitle"><img src="img/parallel.png" class="img-responsive grow"></a>
+                	</center>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="prelim">
+        <div class="container text-justify">
+
+            <h2 class="pull-left">Preliminary Analysis:</h2><div style='clear:both'></div>
+            <h1>History of Tweets</h1><div style='clear:both'></div>
+            The preliminary analysis consists of a simple overview of the extracted data. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.
+            <br><br>
+
+            <center>[US-ELECTION TIMELINE FROM PPT?]</center>
+
+            <br><br>
+            The preliminary analysis consists of a simple overview of the extracted data. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.
+
+            <!--<center><svg width="600" height="600" font-family="sans-serif" font-size="20" text-anchor="middle"></svg><br><br></center>-->
+
+			<span id="streamgraphTitle"></span>
+            <center><div id="streamgraph" class="streamgraph" style="position:relative;"></div></center>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.<br><br>
+
+			<span id="wordcloudTitle"></span>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                	<img src="d3/wordcloud/hillary_wc.png" class="img-responsive">
+                </div>
+                <div class="col-sm-6">
+                	<img src="d3/wordcloud/trump_wc.png" class="img-responsive">
+                </div>
+            </div>
+            <br>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.
+            <span id="calendarviewTitle"></span>
+            <div id="calendarviewClinton" class="clearfix"></div>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.
+
+            <div id="calendarviewTrump" class="clearfix"></div>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+
+            <h1>Twitter Landscape</h1><div style='clear:both'></div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+
+            <span id="usmapTitle"></span>
+            <div class="row">
+                <div class="col-sm-9">
+                	<center>
+            			<div id="usmap-tooltip"></div>
+						<div id="usmap"></div>
+					</center>
+                </div>
+                <div class="col-sm-3">
+                	<img src="d3/usmap/usmap.png" class="img-responsive pull-right" style="border: 1px black solid;">
+                </div>
+            </div>
+            <br>
+
+
+            <center>
+            <div id="usmap-tooltip"></div>
+			<div id="usmap"></div>
+			</center>
+
+            <h1>Candidates v. Voters</h1><div style='clear:both'></div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+
+            <span id="parallelTitle"></span>
+            <center><div id="parallelCoord" class="parallelCoord clearfix"></div></center>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+
+        </div>
+        
+    </section>
+
+    <section id="prelim">
+        <div class="container text-justify">
+
+            <h1>Sources</h1>
+
+                <font size="4" class="pull-left text-justify">
+                    <a href="https://www.bcgperspectives.com/content/articles/automotive_management_slow_growth_economy_how_automakers_accelerated_out_of_the_great_depression/" target="_blank">[1]</a> "How Automakers Accelerated Out of the Great Depression". David Rhodes and Daniel Stelter. February 16, 2010. Last online accessed: 05.12.2016.<br>
+                    <a href="https://en.wikipedia.org/wiki/Aerospace#History" target="_blank">[2]</a> Aerospace History. Wikipedia. Last online accessed: 06.12.2016.<br>
+                    <a href="http://lanl.arxiv.org/abs/0803.0476" target="_blank">[3]</a> Vincent D. Blondel, Jean-Loup Guillaume, Renaud Lambiotte, Etienne Lefebvre - Fast unfolding of communities in large networks (2008)<br>
+                    <a href="http://www.sci.unich.it/~francesc/teaching/network/katz.html" target="_blank">[4]</a> University of Chieti-Pescara, Teaching notes. Last online accessed: 03.12.2016<br>
+                </font>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>MSBD5005 Data Visualization</strong></h4>
+
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; 2017 | Mohammad Al Atraktchi,  Arnor Ingi Sigurdsson & Zhongwei Chen</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="js/d3v4.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
+
+    <!--<script src="d3/bubblechart/bubblechart.js" type="text/javascript"></script>-->
+    <script src="d3/streamgraph/streamgraph.js" type="text/javascript"></script>
+    <script src="d3/calendarview/calendarviewClinton.js" type="text/javascript"></script>
+    <script src="d3/calendarview/calendarviewTrump.js" type="text/javascript"></script>
+    <script src="d3/usmap/usmap.js" type="text/javascript"></script>
+    <!--<script src="d3/parallel/parallelgraph.js" type="text/javascript"></script>-->
+    <script src="d3/parallel/parallel.js" type="text/javascript"></script>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/magnetNew.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    // Disable Google Maps scrolling
+    // See http://stackoverflow.com/a/25904582/1607849
+    // Disable scroll zooming and bind back the click event
+    var onMapMouseleaveHandler = function(event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function(event) {
+            var that = $(this);
+            // Disable the click handler until the user leaves the map area
+            that.off('click', onMapClickHandler);
+            // Enable scrolling zoom
+            that.find('iframe').css("pointer-events", "auto");
+            // Handle the mouse leave event
+            that.on('mouseleave', onMapMouseleaveHandler);
+        }
+        // Enable map zooming with mouse scroll when the user clicks the map
+    $('.map').on('click', onMapClickHandler);
+    </script>
+
+</body>
+
+</html>
