@@ -83,7 +83,7 @@
       .style("visibility", "hidden")
       .text("a simple tooltip");
 
-    d3.csv("d3/calendarview/calendarviewTrump.csv", function(error, csv) {
+    d3.csv("calendarviewTrump.csv", function(error, csv) {
       var data = d3.nest()
         .key(function(d) { return d.Date; })
         .rollup(function(d) { return d[0].Sentiment; })
