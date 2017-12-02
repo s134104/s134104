@@ -100,7 +100,18 @@
       function mouseover(d) {
         tooltip.style("visibility", "visible");
         var percent_data = (data[d] !== undefined) ? percent(data[d]) : percent(0);
-        var purchase_text = d + ": " + percent_data;
+
+        if(d == "2016-06-13") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/clintonJune13.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-07-09") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/clintonJuly09.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-08-14") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/clintonAugust14.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-09-28") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/clintonSeptember28.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else {
+          var purchase_text = d + ": " + percent_data;
+        }
 
         tooltip.transition()        
                     .duration(200)      

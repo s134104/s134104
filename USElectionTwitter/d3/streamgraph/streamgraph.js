@@ -35,7 +35,7 @@ var tooltip = d3.select("#streamgraph")
     .style("top", "30px")
     .style("left", "4px")
     .style("text-align", "left")
-    .style("width", "150px");
+    .style("width", "300px");
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -138,13 +138,36 @@ var graph = d3.csv(csvpath, function(data) {
       //JSON.stringify(d.values[mousedate]
       // datearray indexOf always takes the same indices because of repeated months!
 
-      d3.select(this)
-      .classed("hover", true)
-      .attr("stroke", strokecolor)
-      .attr("stroke-width", "0.5px"), 
-      //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
-      tooltip.html( "<p>" + d.key + "</p>" ).style("visibility", "visible");
-      
+      if(mousex > 606 && mousex < 717) {
+        d3.select(this)
+        .classed("hover", true)
+        .attr("stroke", strokecolor)
+        .attr("stroke-width", "0.5px"), 
+        //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
+        tooltip.html( "<p>" + d.key + "<br>" + "Post 1st Presidential Debate" + "</p>" ).style("visibility", "visible");
+      } else if(mousex > 717 && mousex < 800) {
+        d3.select(this)
+        .classed("hover", true)
+        .attr("stroke", strokecolor)
+        .attr("stroke-width", "0.5px"), 
+        //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
+        tooltip.html( "<p>" + d.key + "<br>" + "Post 2nd Presidential Debate" + "</p>" ).style("visibility", "visible");
+      } else if(mousex > 800 && mousex < 966) {
+        d3.select(this)
+        .classed("hover", true)
+        .attr("stroke", strokecolor)
+        .attr("stroke-width", "0.5px"), 
+        //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
+        tooltip.html( "<p>" + d.key + "<br>" + "Post 3st Presidential Debate" + "</p>" ).style("visibility", "visible");
+      } else {
+        d3.select(this)
+        .classed("hover", true)
+        .attr("stroke", strokecolor)
+        .attr("stroke-width", "0.5px"), 
+        //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
+        tooltip.html( "<p>" + d.key + "</p>" ).style("visibility", "visible");
+      }
+
     })
     .on("mouseout", function(d, i) {
      svg.selectAll(".layer")

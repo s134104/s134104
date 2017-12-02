@@ -17,7 +17,7 @@
         format = d3.time.format("%Y-%m-%d");
 
     var color = d3.scale.quantize()
-        .domain([-0.62, 0.607])
+        .domain([-0.62, 0.701])
         .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
 
     var svg = d3.select("#calendarviewTrump").selectAll("svg")
@@ -100,7 +100,23 @@
       function mouseover(d) {
         tooltip.style("visibility", "visible");
         var percent_data = (data[d] !== undefined) ? percent(data[d]) : percent(0);
-        var purchase_text = d + ": " + percent_data;
+
+        if(d == "2016-08-29") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/trumpAugust29.png\" style=\"max-height:150px;\"  class=\"img-responsive\">";
+        } else if(d == "2016-09-16") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/trumpSeptember16.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-06-01") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/trumpJune01.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-04-22") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/trumpApril22.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-06-05") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/trumpJune05.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else if(d == "2016-05-12") {
+          var purchase_text = d + ": " + percent_data + "<br>" + "<img src=\"img/trumpMay12.png\" style=\"max-height:150px;\" class=\"img-responsive\">";
+        } else {
+          var purchase_text = d + ": " + percent_data;
+        }
+        
 
         tooltip.transition()        
                     .duration(200)      

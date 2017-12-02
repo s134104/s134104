@@ -63,18 +63,22 @@
                     </li>
         
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preliminary Analysis <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Visualizations <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#prelim">Historic View</a></li>
-                            <li><a href="#historyOfIndustries">Twitter Landscape</a></li>
-                            <li><a href="#globalScatter">Fun Facts</a></li>
+                            <li><a href="#streamgraphTitle">Stream Graph</a></li>
+                            <li><a href="#wordcloudTitle">Wordclouds</a></li>
+                            <li><a href="#calendarviewTitle">Calendar Views</a></li>
+                            <li><a href="#usmapTitle">US Map</a></li>
+                            <li><a href="#parallelTitle">Parallelogram</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sentiment Analysis <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#sentiment">Wordclouds</a></li>
+                            <li><a href="#prelim">History of Tweets</a></li>
+                            <li><a href="#twitterLandscape">Twitter Landscape</a></li>
+                            <li><a href="#statesTopics">States & Topics</a></li>
                         </ul>
                     </li>
                     
@@ -102,7 +106,7 @@
                     <div class="header-content">
                         <div class="header-content-inner">
                             <center><span style="font-size:50px;" class="text-uppercase animate-start" data-animations="fadeInUp" data-animation-delay="1s" data-animation-duration="2s">Twitter Analysis <br><font color="#FFF"><b>US Election</b></font> 2016</span></center><br><br><br>
-                            <h3 style="margin-top:-20px;" class="animate-start" data-animations="fadeInDown" data-animation-delay="2s" data-animation-duration="2s">Some statement here that is long enough. Blah. Interactive Word Bubble size the to right instead?</h3>
+                            <h3 style="margin-top:-20px;" class="animate-start" data-animations="fadeInDown" data-animation-delay="2s" data-animation-duration="2s"><center>How did Donald Trump exactly win the Presidency? Discover, interact, and explore the answers yourself from the perspective of Twitter.</center></h3>
                             <br>
                             <center><a href="https://shawnhouchn.github.io/Social-Graph-Interaction/project/project_assignmentB.ipynb" class="btn btn-outline-black btn-xl page-scroll animate-start" data-animations="fadeIn" data-animation-delay="3s" data-animation-duration="2s" target="_blank">Download the study here</a></center>
                         </div>
@@ -134,27 +138,27 @@
     	<div class="container-fluid text-justify">
             <div class="row">
                 <div class="col-sm-3">
-                	<center><strong>Streamgraph</strong>
+                	<center><strong>Streamgraph</strong><br><br>
                 	<a href="#streamgraphTitle"><img src="img/streamgraph.png" class="img-responsive grow"></a>
                 	</center>
                 </div>
                 <div class="col-sm-3">
-                	<center><strong>Wordclouds</strong>
+                	<center><strong>Wordclouds</strong><br><br>
                 	<a href="#wordcloudTitle"><img src="img/wordcloud.png" class="img-responsive grow"></a>
                 	</center>
                 </div>
                 <div class="col-sm-2">
-                	<center><strong>Calendar Views</strong>
+                	<center><strong>Calendar Views</strong><br><br>
                 	<a href="#calendarviewTitle"><img src="img/calendar.png" class="img-responsive grow"></a>
                 	</center>
                 </div>
                 <div class="col-sm-2">
-                	<center><strong>US Map</strong>
+                	<center><strong>US Map</strong><br><br>
                 	<a href="#usmapTitle"><img src="img/usmap.png" class="img-responsive grow"></a>
                 	</center>
                 </div>
                 <div class="col-sm-2">
-                	<center><strong>Parallelogram</strong>
+                	<center><strong>Parallelogram</strong><br><br>
                 	<a href="#parallelTitle"><img src="img/parallel.png" class="img-responsive grow"></a>
                 	</center>
                 </div>
@@ -166,22 +170,26 @@
     <section id="prelim">
         <div class="container text-justify">
 
-            <h2 class="pull-left">Preliminary Analysis:</h2><div style='clear:both'></div>
+            <!--<h2 class="pull-left">Preliminary Analysis:</h2><div style='clear:both'></div>-->
             <h1>History of Tweets</h1><div style='clear:both'></div>
-            The preliminary analysis consists of a simple overview of the extracted data. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.
+            This study spans over a period of roughly 4 months, more specially from July 13th 2016 to November 10th 2016. This repesents the period from one month after the presidential primaries and caucuses to 2 days after the Election Day.
             <br><br>
 
-            <center>[US-ELECTION TIMELINE FROM PPT?]</center>
+            <center><img src="img/timeline.png" class="img-responsive"><br></center>
+
+            During this period, more than <b>800,000</b> tweets have been collected, cleaned, filtered, sorted, and otherwise processed. Of particular importance, <b>8,448</b> tweets have been collected from the candidates themselves and <b>266,734</b> tweets from the election day itself.
 
             <br><br>
-            The preliminary analysis consists of a simple overview of the extracted data. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.
+            The <b>top 10</b> hashtags are extracted from this data, and is represented in the streamgraph below.<br>
 
             <!--<center><svg width="600" height="600" font-family="sans-serif" font-size="20" text-anchor="middle"></svg><br><br></center>-->
 
 			<span id="streamgraphTitle"></span>
             <center><div id="streamgraph" class="streamgraph" style="position:relative;"></div></center>
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.<br><br>
+            <br>This streamgraph above attest to how (much) each of the top 10 hashtags change over time - including highlights for each of the <b>3 presidential debates</b>. It is particularly interesting how Donald Trump has managed to maintain a strong and constant adaptation of the hastag and slogan <b>#MAGA</b> (<b>M</b>ake <b>A</b>merica <b>G</b>reat <b>A</b>gain) throughout the entire election period - this is in strong contrast to Hillary Clinton, whose campaign slogan <b>#ImWithHer</b> has a fairly lower representation throughout. Moreover, 5 out of 10 hashtags are related to the Trump campaign, whereas only 3 is for the Clinton campaign. The remaining 2 hashtags are #Election16, and the anti-Trump hashtag #NeverTrump. However, the cumulative representation for the Trump campaign is much stronger during the entire election period. The empty period from August 16 to August 28 is due to missing data.<br><br> 
+
+            A Wordcloud representation for all the tweets originating from either Trump or Hillary is seen below. This illustration can be interpreted as which words defined the discourse during the election for each candidate:<br><br>
 
 			<span id="wordcloudTitle"></span>
             <div class="row">
@@ -194,18 +202,23 @@
             </div>
             <br>
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Mauris ut est et ligula porttitor consequat pretium id odio.
+            From these wordclouds, it is clear that Clinton attempts to appeal to her followers' <b>pathos</b>, using words like <i>family, country</i> and <i>people</i>, as well as focusing on <i>women</i>. Trump has chosen a different approach, focusing on <i>jobs</i>, personal attacks with <i>crooked</i> (from #crookedHillary), as well as <i>thanking</i> a lot of people.<br><br>
+
+            The wordsclouds provides only part of the whole picture. From these tweets, a <b>sentiment analysis</b> has been conducted on the candidates' tweets. This essentially shows how positively or negatively loaded their tweets have been throughout the election period. The following Calendar View shows the sentiment (or 'tone') on each day for each candidate. The mismatch between the two calendars is due to when each candidate started using Twitter:<br>
+
             <span id="calendarviewTitle"></span>
             <div id="calendarviewClinton" class="clearfix"></div>
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.
+            It is interesting to see how the most positive of days for Clinton is when she receives endorsements from e.g. Barack Obama (POTUS) or Michelle Obama (FLOTUS). The rest of the days, her tone has been fairly evened out by both positive and negative tweets.
 
             <div id="calendarviewTrump" class="clearfix"></div>
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+            Clinton's calendar view is in stark contrast to Trump's, which shows much more variation. This is in part because of the many harsh personal attacks on Clinton, scare-tactics, and a lot of positivity, appreciation and 'thanks' for others.
 
+            <br><br>
+            <span id="twitterLandscape"></span>
             <h1>Twitter Landscape</h1><div style='clear:both'></div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+            This election has exhibited the lowest voter turnout in almost 20 years <a href="#sources">[1]</a>. This is reflected in how many tweets originated from each state, indicating which states cared most about the election enough to tweet about it. This is illustrated in the US state map visualization below:<br><br>
 
             <span id="usmapTitle"></span>
             <div class="row">
@@ -221,14 +234,22 @@
             </div>
             <br>
 
+            It can be seen that the normalized percentages never exceeds 5%. More interestingly, <b>only 2 swing states</b>, Nevada & Florida, made an - albeit very small - effort to express themselves on Twitter during this election. This is surprising, given how swing states typically determine the election.<br><br>
+
+            It is also worth noting that the <b>west coast, east coast, and southern border states</b> have the strongest showing. This is consistent with some of the discourse found in the tweets, e.g. the topic of <i>immigration</i>. These coast and border states takes in most immigrants <a href="#sources">[2]</a>, which could prompt these states to address this online. Immigration and foreign policy is one of the biggest topics this election <a href="#sources">[3]</a>.<br><br>
+
+            Such correlations between states and topics will be further explored in the next section.
+
 
             <center>
             <div id="usmap-tooltip"></div>
 			<div id="usmap"></div>
 			</center>
 
-            <h1>Candidates v. Voters</h1><div style='clear:both'></div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed justo auctor, pulvinar diam at, suscipit erat. Aliquam erat volutpat.<br><br>
+			<br><br>
+			<span id="statesTopics"></span>
+            <h1>States & Topics</h1><div style='clear:both'></div>
+            These visualizations have culminated in the correlation between states and topics. This section will explore which topics were most important to each state and their influence on the election. The top topics during the election has been put up against the states in the following parallelogram: <br><br>
 
             <span id="parallelTitle"></span>
             <center><div id="parallelCoord" class="parallelCoord clearfix"></div></center>
@@ -239,16 +260,16 @@
         
     </section>
 
-    <section id="prelim">
+    <section id="sources">
         <div class="container text-justify">
 
             <h1>Sources</h1>
 
                 <font size="4" class="pull-left text-justify">
-                    <a href="https://www.bcgperspectives.com/content/articles/automotive_management_slow_growth_economy_how_automakers_accelerated_out_of_the_great_depression/" target="_blank">[1]</a> "How Automakers Accelerated Out of the Great Depression". David Rhodes and Daniel Stelter. February 16, 2010. Last online accessed: 05.12.2016.<br>
-                    <a href="https://en.wikipedia.org/wiki/Aerospace#History" target="_blank">[2]</a> Aerospace History. Wikipedia. Last online accessed: 06.12.2016.<br>
-                    <a href="http://lanl.arxiv.org/abs/0803.0476" target="_blank">[3]</a> Vincent D. Blondel, Jean-Loup Guillaume, Renaud Lambiotte, Etienne Lefebvre - Fast unfolding of communities in large networks (2008)<br>
-                    <a href="http://www.sci.unich.it/~francesc/teaching/network/katz.html" target="_blank">[4]</a> University of Chieti-Pescara, Teaching notes. Last online accessed: 03.12.2016<br>
+                    <a href="http://edition.cnn.com/2016/11/11/politics/popular-vote-turnout-2016/index.html" target="_blank">[1]</a> "Voter turnout at 20-year low in 2016". Gregory Wallace, CNN. February 30, 2016. Last online accessed: 03.12.2017.<br>
+                    <a href="http://www.pewresearch.org/fact-tank/2014/05/14/15-states-with-the-highest-share-of-immigrants-in-their-population/" target="_blank">[2]</a> "15 states with the highest share of immigrants in their population". Pew Research Center. May 14, 2014. Last online accessed: 03.12.2017.<br>
+                    <a href="http://www.people-press.org/2016/07/07/4-top-voting-issues-in-2016-election/" target="_blank">[3]</a> "Top voting issues in 2016 election". Pew Research Center. July 7, 2014. Last online accessed: 03.12.2017.<br>
+
                 </font>
 
         </div>
