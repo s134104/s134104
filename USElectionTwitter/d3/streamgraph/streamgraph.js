@@ -159,6 +159,13 @@ var graph = d3.csv(csvpath, function(data) {
         .attr("stroke-width", "0.5px"), 
         //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
         tooltip.html( "<p>" + d.key + "<br>" + "Post 3st Presidential Debate" + "</p>" ).style("visibility", "visible");
+      } else if(mousex > 0 && mousex < 100) {
+        d3.select(this)
+        .classed("hover", true)
+        .attr("stroke", strokecolor)
+        .attr("stroke-width", "0.5px"), 
+        //tooltip.html( "<p>" + d.key + "<br>" + datearray + "<br>" + Number(pro).toFixed(2) + "% of this day" + "<br>" + getDate + "</p>" ).style("visibility", "visible");
+        tooltip.html( "<p>" + d.key + "<br>" + "Candidates not yet nominated" + "</p>" ).style("visibility", "visible");
       } else {
         d3.select(this)
         .classed("hover", true)

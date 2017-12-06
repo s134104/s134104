@@ -2,7 +2,7 @@
 
 var margin = {top: 50, right: 100, bottom: 20, left: 100},
     width = 960 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = 300 - margin.top - margin.bottom;
 
 var types = {
   "Number": {
@@ -30,8 +30,8 @@ var types = {
 
 var dimensions = [
   {
-    key: "state",
-    description: "State",
+    key: "candidate",
+    description: "Candidate",
     type: types["String"]
   },
   {
@@ -91,8 +91,7 @@ var dimensions = [
   {
     key: "party",
     description: "Party",
-    type: types["String"],
-    domain: ["Republicans", "Swing State", "Democrats"]
+    type: types["String"]
   }
 ];
 
@@ -106,16 +105,16 @@ var line = d3.svg.line()
 var yAxis = d3.svg.axis()
     .orient("left");
 
-var svg = d3.select("#parallelCoord").append("svg")
+var svg = d3.select("#parallelCoordCandidate").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-//var output = d3.select("#parallelCoord").append("pre");
+//var output = d3.select("#parallelCoordCandidate").append("pre");
 
-var foreground = svg.append("g")
-  .attr("class", "foreground");
+var foreground2 = svg.append("g")
+  .attr("class", "foreground2");
 
 var axes = svg.selectAll(".axis")
     .data(dimensions)
@@ -123,7 +122,7 @@ var axes = svg.selectAll(".axis")
     .attr("class", "axis")
     .attr("transform", function(d) { return "translate(" + x(d.key) + ")"; });
 
-d3.csv("d3/parallel/parallel.csv", function(error, data) {
+d3.csv("d3/parallel/parallelCandidate.csv", function(error, data) {
   if (error) throw error;
 
   data.forEach(function(d) {
@@ -151,12 +150,12 @@ d3.csv("d3/parallel/parallel.csv", function(error, data) {
     dim.scale.domain(dim.domain);
   });
 
-  foreground.selectAll("path")
+  foreground2.selectAll("path")
       .data(data)
     .enter().append("path")
       .attr("d", draw)
-      //.style("stroke",  function(d) { if (d.party == "Republicans") { return "#FF0000"} else if (d.party == "Democrats") { return "#0000FF"} else { return "#555" };});
-      .style("stroke",  function(d) { return "#6ac" });
+      .style("stroke-width", "4px")
+      .style("stroke", function(d) { if (d.party == "Republican") { return "#FF0000"} else { return "#6ac" };});
 
   axes.append("g")
       .attr("class", "axis")
@@ -196,14 +195,14 @@ d3.csv("d3/parallel/parallel.csv", function(error, data) {
     d3.event.sourceEvent.stopPropagation();
   }
 
-  // Handles a brush event, toggling the display of foreground lines.
+  // Handles a brush event, toggling the display of foreground2 lines.
   function brush() {
     var actives = dimensions.filter(function(p) { return !p.brush.empty(); }),
         extents = actives.map(function(p) { return p.brush.extent(); });
 
     var selected = [];
 
-    d3.selectAll(".foreground path").style("display", function(d) {
+    d3.selectAll(".foreground2 path").style("display", function(d) {
       if (actives.every(function(dim, i) {
           // test if point is within extents for each active brush
           return dim.type.within(d[dim.key], extents[i], dim);

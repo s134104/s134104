@@ -1,0 +1,39 @@
+.parallelCoord {
+  font: 12px sans-serif;
+}
+
+.foreground2 path {
+  fill: none;
+  stroke: #222;
+  stroke-opacity: 0.4;
+  pointer-events: none;
+  stroke-width: 2px;
+}
+ 
+.axis .title {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transform: rotate(-12deg) translate(-5px,-6px);
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+pre {
+  width: 100%;
+  margin: 10px 30px;
+  tab-size: 25;
+  font-size: 12px;
+  overflow: auto;
+}
