@@ -91,7 +91,8 @@ var dimensions = [
   {
     key: "party",
     description: "Party",
-    type: types["String"]
+    type: types["String"],
+    domain: ["Republican", "Democrats"]
   }
 ];
 
