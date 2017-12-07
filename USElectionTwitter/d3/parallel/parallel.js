@@ -155,8 +155,8 @@ d3.csv("d3/parallel/parallel.csv", function(error, data) {
       .data(data)
     .enter().append("path")
       .attr("d", draw)
-      //.style("stroke",  function(d) { if (d.party == "Republicans") { return "#FF0000"} else if (d.party == "Democrats") { return "#0000FF"} else { return "#555" };});
-      .style("stroke",  function(d) { return "#6ac" });
+      .style("stroke",  function(d) { if (d.party == "Republicans") { return "#FF0000"} else if (d.party == "Democrats") { return "#0000FF"} else { return "#555" };});
+      //.style("stroke",  function(d) { return "#6ac" });
 
   axes.append("g")
       .attr("class", "axis")
